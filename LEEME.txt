@@ -9,3 +9,16 @@ MIS FINANZAS — prototipo Android (PWA)
 7. Es un prototipo, no software bancario ni un servicio de sincronización. No introduzcas contraseñas bancarias.
 
 ACTUALIZACIÓN v0.2: Subir los archivos reemplazando los anteriores. Al abrir la app, migrará los nombres de cuentas sin borrar movimientos. La visita a vidriería de $10.000 se descontará una vez del saldo inicial. Los nuevos movimientos de Cta. cte. Santander modificarán el saldo. Los movimientos iniciales no se vuelven a descontar. Tenpo corregido a $86.846.
+
+
+VERSION 0.4: Importacion ChatGPT
+En Movimientos pulsa "Importar desde ChatGPT" y pega un objeto JSON con description, amount, date (AAAA-MM-DD), account, category, billingMonth (AAAA-MM), installmentCount y type (expense/income/refund).
+Alternativamente abre https://arkeii.github.io/mis-finanzas/#importar=BASE64URL(JSON-UTF8).
+El enlace solo abre una vista previa; requiere confirmacion. No transmite datos a un servidor propio, pero el enlace puede quedar en historiales o servicios donde se comparta: evita informacion sensible.
+Se mantiene registro manual. Haz respaldo antes de reemplazar archivos.
+
+VERSION 0.5: edición de movimientos y respaldo mejorado.
+En Movimientos pulsa Editar para modificar descripción, importe, fecha, categoría, cuenta, cuotas y mes de facturación.
+Los movimientos agregados por el usuario actualizan el saldo de la cuenta corriente por diferencia al editarlos o eliminarlos. Los datos precargados no se vuelven a descontar del saldo inicial.
+Antes de actualizar, exporta JSON y comprueba que el archivo se haya descargado. Importar JSON reemplaza la base local, no fusiona.
+Sube index.html, app.js, sw.js y el resto de archivos del ZIP a la raíz del repositorio.
