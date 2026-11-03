@@ -1,7 +1,22 @@
-Mis Finanzas v0.9
-- Descripción y monto alineados en la primera fila.
-- Fecha/cuenta/categoría y acciones en la segunda fila.
-- Agregar e Importar compactos en la cabecera, sin texto explicativo.
-- No cambia almacenamiento, cálculos ni importación.
+MIS FINANZAS v1.0 — actualización sobre v0.9
 
-Antes de actualizar, exporta un respaldo desde Ajustes. Sube el contenido de esta carpeta a la raíz del repositorio GitHub Pages. No borres datos del sitio.
+PUBLICACIÓN
+1. En el celular, Ajustes > Exportar respaldo JSON. Guarda el archivo en un lugar seguro.
+2. En GitHub, sube index.html, app.js y sw.js de este ZIP a la raíz del repositorio, reemplazando los anteriores. Conserva manifest.webmanifest e icon.svg existentes.
+3. Espera a que GitHub Pages termine la publicación. Abre https://arkeii.github.io/mis-finanzas/?v=10 en Chrome.
+4. No desinstales la app ni borres los datos del sitio.
+
+CAMBIOS
+- Edición de reembolsos pendientes con el mismo ícono lápiz de Movimientos.
+- Recepción vinculada a un único movimiento; ingreso bancario solo si la cuenta es corriente.
+- Reversión con confirmación y movimiento vinculado anulado.
+- Migración del reembolso SURA pendiente: $57.976, previsto 2026-11-04.
+- Copia automática previa de datos locales en la clave mis_finanzas_v1_pre_v10_backup.
+- Caché de PWA versionada v10.
+
+ATENCIÓN
+Si SURA figura como recibido antes de actualizar, no se modifica automáticamente: el sistema lo marca como registro antiguo sin movimiento vinculado y permite revertirlo para corregirlo. No presupone un abono bancario.
+Las devoluciones de tarjetas reducen la deuda proyectada y no incrementan la cuenta corriente.
+
+VALIDACIÓN
+Se ejecutaron comprobaciones automatizadas de migración, recepción, reversión, persistencia y saldo. Probar adicionalmente en Chrome Android tras la publicación; no se ha accedido a tus datos locales reales.
