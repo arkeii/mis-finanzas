@@ -1,10 +1,12 @@
-Mis Finanzas v0.6
+Mis Finanzas v0.7
 
 1. En Ajustes exporta un respaldo antes de actualizar.
 2. Sube el contenido de esta carpeta a la raiz de tu repositorio GitHub Pages, reemplazando archivos.
 3. Espera a que termine la publicacion.
-4. Abre https://arkeii.github.io/mis-finanzas/?v=6
+4. Abre https://arkeii.github.io/mis-finanzas/?v=7
 5. Para importar usa enlaces con ?importar=BASE64URL.
 6. La importacion siempre exige confirmar y guardar. Se mantiene el ingreso manual.
 
 IMPORTANTE: No elimines los datos del navegador. Los movimientos quedan almacenados localmente.
+
+NOVEDAD v0.7: movimientos y ultimos movimientos ordenados por registro mas reciente primero. Conserva datos locales, importacion y registro manual.
