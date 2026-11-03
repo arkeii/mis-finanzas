@@ -7,3 +7,5 @@ MIS FINANZAS — prototipo Android (PWA)
 5. Datos de inicio: conciliación conversada al 2 de noviembre de 2026. Son cifras estimadas y editables. El total Santander usa un ajuste de redondeo de $1 para reproducir el EDC conocido de $74.223.
 6. Las devoluciones pendientes se muestran en un escenario neto separado del bruto. Marcar recibido no cambia el saldo bancario: este se actualiza manualmente.
 7. Es un prototipo, no software bancario ni un servicio de sincronización. No introduzcas contraseñas bancarias.
+
+ACTUALIZACIÓN v0.2: Subir los archivos reemplazando los anteriores. Al abrir la app, migrará los nombres de cuentas sin borrar movimientos. La visita a vidriería de $10.000 se descontará una vez del saldo inicial. Los nuevos movimientos de Cta. cte. Santander modificarán el saldo. Los movimientos iniciales no se vuelven a descontar. Tenpo corregido a $86.846.
