@@ -1,4 +1,4 @@
-const CACHE='mis-finanzas-v8';
+const CACHE='mis-finanzas-v9';
 const ASSETS=['./','./index.html','./app.js','./manifest.webmanifest','./icon.svg'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys()){if(key!==CACHE&&key.startsWith('mis-finanzas-'))await caches.delete(key)}await self.clients.claim()})())});

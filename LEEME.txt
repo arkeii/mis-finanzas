@@ -1,7 +1,7 @@
-Mis Finanzas v0.8 — acciones compactas en Movimientos
+Mis Finanzas v0.9
+- Descripción y monto alineados en la primera fila.
+- Fecha/cuenta/categoría y acciones en la segunda fila.
+- Agregar e Importar compactos en la cabecera, sin texto explicativo.
+- No cambia almacenamiento, cálculos ni importación.
 
-Se reemplazan los botones Editar y Eliminar por iconos de lápiz y papelera, conservando exactamente las mismas funciones.
-
-INSTALACIÓN: primero exporta un respaldo desde Ajustes. Descomprime el ZIP y sube sus archivos a la raíz del repositorio GitHub Pages, reemplazando los existentes. No elimines los datos del navegador. Abre https://arkeii.github.io/mis-finanzas/?v=8
-
-El código y los datos de la app son locales; GitHub Pages publica solamente los archivos estáticos.
+Antes de actualizar, exporta un respaldo desde Ajustes. Sube el contenido de esta carpeta a la raíz del repositorio GitHub Pages. No borres datos del sitio.
