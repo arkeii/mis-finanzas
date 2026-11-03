@@ -69,8 +69,25 @@ function parseChatImport(raw){
 function duplicateChatImport(m){return state.movements.some(x=>x.description.trim().toLowerCase()===m.description.toLowerCase()&&x.amount===m.amount&&x.date===m.date&&x.account===m.account&&x.type===m.type)}
 function previewChatImport(){try{const m=parseChatImport(el('chatImportText').value.trim());pendingChatImport=m;let duplicate=duplicateChatImport(m);el('chatImportPreview').innerHTML=`<strong>${safe(m.description)}</strong><div class="big">${money(m.amount)}</div><p class="hint">${safe(m.date)} · ${safe(m.account)} · ${safe(m.category)} · ${m.installmentCount} cuota(s) · Factura ${safe(m.billingMonth)} · ${safe(m.type)}</p>${duplicate?'<p class="warning">Posible duplicado: este movimiento ya está registrado.</p>':''}`;el('chatImportPreview').style.display='block';el('chatImportSave').disabled=duplicate;if(duplicate)notify('Movimiento posiblemente duplicado')}catch(e){pendingChatImport=null;el('chatImportSave').disabled=true;el('chatImportPreview').style.display='none';notify('Error: '+e.message)}}
 function saveChatImport(){if(!pendingChatImport)return;const m=pendingChatImport;if(duplicateChatImport(m)){notify('Ya existe un movimiento igual');return}const entry=mk('chat'+Date.now(),m.description,m.amount,m.date,m.account,m.category,m.billingMonth,m.installmentCount,m.type,false);state.movements.push(entry);if(m.account==='Cta. cte. Santander')state.balance+=(m.type==='expense'?-m.amount:m.amount);persist();closeImportDialog();render();notify('Importado y guardado correctamente')}
-function loadChatLink(){const hash=location.hash;if(!hash.startsWith('#importar='))return;try{const b64=hash.slice(9).replace(/-/g,'+').replace(/_/g,'/');const bin=atob(b64);const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));const raw=new TextDecoder().decode(bytes);history.replaceState(null,'',location.pathname+location.search);openImportDialog(raw)}catch(e){history.replaceState(null,'',location.pathname+location.search);notify('Enlace de importación inválido')}}
+function loadChatLink(){
+ // Compatible con enlaces antiguos #importar= y nuevos ?importar=.
+ // No elimina la URL hasta haber validado el movimiento.
+ let payload='';
+ try {
+  const params=new URLSearchParams(location.search);
+  payload=params.get('importar')||'';
+  if(!payload&&location.hash.startsWith('#importar='))payload=location.hash.substring('#importar='.length);
+  if(!payload)return;
+  payload=decodeURIComponent(payload).replace(/-/g,'+').replace(/_/g,'/').replace(/\s/g,'');
+  payload+='='.repeat((4-payload.length%4)%4);
+  const bytes=Uint8Array.from(atob(payload),c=>c.charCodeAt(0));
+  const raw=new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+  parseChatImport(raw); // Valida antes de mostrar confirmación.
+  openImportDialog(raw);
+  history.replaceState(null,'',location.pathname);
+ }catch(e){notify('No se pudo abrir la importación: '+e.message);}
+}
 window.addEventListener('hashchange',loadChatLink);
 loadChatLink();
 
-render();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js?v=5', {updateViaCache:'none'}).catch(()=>{});
+render();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js?v=6', {updateViaCache:'none'}).catch(()=>{});

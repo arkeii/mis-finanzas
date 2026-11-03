@@ -1,24 +1,10 @@
-MIS FINANZAS — prototipo Android (PWA)
+Mis Finanzas v0.6
 
-1. La aplicación es estática: no requiere Firebase ni cuenta de usuario.
-2. Para instalarla como app en Android, publica esta carpeta en un sitio HTTPS (por ejemplo GitHub Pages o Cloudflare Pages) y visita el enlace en Chrome > menú > Instalar aplicación.
-3. Para probarla sin publicar, abre index.html en un navegador; algunas funciones de instalación y trabajo sin conexión requieren HTTPS o localhost.
-4. Los datos se guardan en el almacenamiento local del navegador del dispositivo. En Ajustes > Exportar JSON puedes generar un respaldo y luego importarlo.
-5. Datos de inicio: conciliación conversada al 2 de noviembre de 2026. Son cifras estimadas y editables. El total Santander usa un ajuste de redondeo de $1 para reproducir el EDC conocido de $74.223.
-6. Las devoluciones pendientes se muestran en un escenario neto separado del bruto. Marcar recibido no cambia el saldo bancario: este se actualiza manualmente.
-7. Es un prototipo, no software bancario ni un servicio de sincronización. No introduzcas contraseñas bancarias.
+1. En Ajustes exporta un respaldo antes de actualizar.
+2. Sube el contenido de esta carpeta a la raiz de tu repositorio GitHub Pages, reemplazando archivos.
+3. Espera a que termine la publicacion.
+4. Abre https://arkeii.github.io/mis-finanzas/?v=6
+5. Para importar usa enlaces con ?importar=BASE64URL.
+6. La importacion siempre exige confirmar y guardar. Se mantiene el ingreso manual.
 
-ACTUALIZACIÓN v0.2: Subir los archivos reemplazando los anteriores. Al abrir la app, migrará los nombres de cuentas sin borrar movimientos. La visita a vidriería de $10.000 se descontará una vez del saldo inicial. Los nuevos movimientos de Cta. cte. Santander modificarán el saldo. Los movimientos iniciales no se vuelven a descontar. Tenpo corregido a $86.846.
-
-
-VERSION 0.4: Importacion ChatGPT
-En Movimientos pulsa "Importar desde ChatGPT" y pega un objeto JSON con description, amount, date (AAAA-MM-DD), account, category, billingMonth (AAAA-MM), installmentCount y type (expense/income/refund).
-Alternativamente abre https://arkeii.github.io/mis-finanzas/#importar=BASE64URL(JSON-UTF8).
-El enlace solo abre una vista previa; requiere confirmacion. No transmite datos a un servidor propio, pero el enlace puede quedar en historiales o servicios donde se comparta: evita informacion sensible.
-Se mantiene registro manual. Haz respaldo antes de reemplazar archivos.
-
-VERSION 0.5: edición de movimientos y respaldo mejorado.
-En Movimientos pulsa Editar para modificar descripción, importe, fecha, categoría, cuenta, cuotas y mes de facturación.
-Los movimientos agregados por el usuario actualizan el saldo de la cuenta corriente por diferencia al editarlos o eliminarlos. Los datos precargados no se vuelven a descontar del saldo inicial.
-Antes de actualizar, exporta JSON y comprueba que el archivo se haya descargado. Importar JSON reemplaza la base local, no fusiona.
-Sube index.html, app.js, sw.js y el resto de archivos del ZIP a la raíz del repositorio.
+IMPORTANTE: No elimines los datos del navegador. Los movimientos quedan almacenados localmente.
