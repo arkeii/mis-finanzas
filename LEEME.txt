@@ -1,0 +1,9 @@
+MIS FINANZAS — prototipo Android (PWA)
+
+1. La aplicación es estática: no requiere Firebase ni cuenta de usuario.
+2. Para instalarla como app en Android, publica esta carpeta en un sitio HTTPS (por ejemplo GitHub Pages o Cloudflare Pages) y visita el enlace en Chrome > menú > Instalar aplicación.
+3. Para probarla sin publicar, abre index.html en un navegador; algunas funciones de instalación y trabajo sin conexión requieren HTTPS o localhost.
+4. Los datos se guardan en el almacenamiento local del navegador del dispositivo. En Ajustes > Exportar JSON puedes generar un respaldo y luego importarlo.
+5. Datos de inicio: conciliación conversada al 2 de noviembre de 2026. Son cifras estimadas y editables. El total Santander usa un ajuste de redondeo de $1 para reproducir el EDC conocido de $74.223.
+6. Las devoluciones pendientes se muestran en un escenario neto separado del bruto. Marcar recibido no cambia el saldo bancario: este se actualiza manualmente.
+7. Es un prototipo, no software bancario ni un servicio de sincronización. No introduzcas contraseñas bancarias.
